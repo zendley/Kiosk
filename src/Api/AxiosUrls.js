@@ -76,6 +76,11 @@ export const AddProducts = 'admin/products/add';
 export const EditProducts = 'admin/products/edit';
 export const DeleteProducts = 'admin/products/delete';
 export const AddCategory = 'admin/products/addcategory';
+export const getCategory = 'admin/products/getcategory';
+export const GetKioskPrice = 'admin/products/getprices';
+export const ChangeKioskPrice = 'admin/products/editkioskprice';
+export const GetKioskBatchPrice = 'admin/products/getkioskbatchprice';
+export const SetKioskBatchPrice = 'admin/products/setkioskbatchprice';
 
 //Requestable Accessories
 export const Requestable_get = 'admin/inventory/requestable/get';

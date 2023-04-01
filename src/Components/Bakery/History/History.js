@@ -67,6 +67,8 @@ export default function History() {
                 }
                 else
                 {   
+                  console.log('===================')
+                  console.log(response.data)
                     setHeader(response.data.header);
                     setTable(response.data.data);
 
@@ -84,8 +86,13 @@ export default function History() {
             })
 
     }
+    {
+      console.log(table)
+      console.log(header)
+    }
 
     const csvReport = {
+      
       data: table,
       headers: header,
       filename: 'History.csv'
@@ -191,8 +198,8 @@ export default function History() {
                     <table ref={tableRef} className="tablee">
                     <thead>
                     <tr>
-                      <th style={{padding: '10px', maxWidth: 'fitContent', textAlign: 'center', fontSize: '8px',}}>Location</th>
-                      <th style={{padding: '10px', maxWidth: 'fitContent', textAlign: 'center', fontSize: '8px',}}>Quantity</th>
+                      {/* <th style={{padding: '10px', maxWidth: 'fitContent', textAlign: 'center', fontSize: '8px',}}>Location</th>
+                      <th style={{padding: '10px', maxWidth: 'fitContent', textAlign: 'center', fontSize: '8px',}}>Quantity</th> */}
                       {header.map((tabl, index)=>{
                         return(
                             <th style={{padding: '10px', maxWidth: 'fitContent', textAlign: 'center', fontSize: '8px',}} key={index}>{tabl}</th>
@@ -206,8 +213,8 @@ export default function History() {
                     {table.map((tabl, index)=>{
                       return(
                       <tr key={tabl.id}>
-                        <td style={{textAlign: 'center',}}>{tabl.location}</td>
-                        <td style={{textAlign: 'center',}}>{tabl.quantity}</td>
+                        {/* <td style={{textAlign: 'center',}}>{tabl.location}</td>
+                        <td style={{textAlign: 'center',}}>{tabl.quantity}</td> */}
         
                         {header.map((tabl2, index)=>{
                         return(

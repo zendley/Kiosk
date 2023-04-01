@@ -525,6 +525,7 @@ if(loadermain === true)
               name="name"
               type="text"
               onChange={handleEditChange}
+              
             />
           </Form.Group>
 

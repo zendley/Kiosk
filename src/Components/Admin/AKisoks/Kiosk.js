@@ -22,6 +22,11 @@ var Delete_Url = axiosURL.DeleteKiosk;
 var tok = localStorage.getItem('token')
 var token = 'Bearer ' + tok;
 
+var getkioskprice_url = axiosURL.GetKioskPrice
+var changekisoskprice_url = axiosURL.ChangeKioskPrice
+var getkioskbatchprice_url = axiosURL.GetKioskBatchPrice
+var setkioskbatchprice_url = axiosURL.SetKioskBatchPrice
+
 
 export default function Kiosk() {
 
@@ -33,8 +38,12 @@ export default function Kiosk() {
   const [editdata, setEditData] = useState([]);
   const [editindex, setEditIndex] = useState([]);
   const [adddata, setAddData] = useState([]);
-
+  const [kioskproductprice, setKioskProductPrice] = useState([])
   const [loadermain, setLoaderMain] = useState(true)
+  const [editpriceopen,setEditPriceOpen] = useState(false)
+
+  const [kioskbatchprice,setKioskBatchPrice] = useState([])
+  const [editbatchprice,setEditBatchPrice] = useState(false)
 
 
   useEffect(() => {
@@ -59,7 +68,7 @@ export default function Kiosk() {
 
           setTable(res);
           setLoaderMain(false);
-        // console.log(response);
+        console.log(response);
 
 
     } catch (err) {
@@ -88,6 +97,22 @@ const handleEditChange = e => {
       ...prevState,
       [name]: value
   }));
+};
+
+const handlePriceEditChange = e => {
+  const { name, value } = e.target;
+  setKioskProductPrice(prevState => ({
+    ...prevState,
+    [name]: value
+}));
+};
+
+const handleBatchPriceEditChange = e => {
+  const { name, value } = e.target;
+  setKioskBatchPrice(prevState => ({
+    ...prevState,
+    [name]: value
+}));
 };
 
 
@@ -203,6 +228,179 @@ else
           }
       })
   }
+
+}
+
+const GetKioskProductPrice = () => {
+  // api Logic Here
+
+  
+
+
+  setLoaderMain(true);
+      const url = getkioskprice_url;
+      axios.post(url, 
+        {
+          
+          location: editdata.loc,
+          
+        },
+        {
+          headers: {
+            'Authorization': token,
+          }
+        }
+      )
+      .then(response=>{
+          if(response.status !== 201 && response.status !==200)
+          {
+            // console.log(response.status)
+              alert("Error", response.status)
+          }
+          else
+          {   
+          setKioskProductPrice(response.data)
+           setLoaderMain(false)
+          }
+      })
+  
+
+}
+
+const EditKioskPrice = () => {
+  // api Logic Here
+  var errors = false
+  Object.entries(kioskproductprice).map(([key,value])=>{
+      if(!value){
+        
+        errors = true
+      }
+  })
+
+  if(errors){
+    alert("Missing Field. Please complete the form")
+  }
+  else{
+    setLoaderMain(true);
+      const url = changekisoskprice_url;
+      
+      axios.post(url, 
+        {
+          kiosk:editdata.kname,
+          data:kioskproductprice
+          
+        },
+        {
+          headers: {
+            'Authorization': token,
+          }
+        }
+      )
+      .then(response=>{
+          if(response.status !== 201 && response.status !==200)
+          {
+            // console.log(response.status)
+              alert("Error", response.status)
+          }
+          else
+          {   
+            setKioskProductPrice(response.data)
+           setLoaderMain(false)
+          }
+      })
+  }
+
+  
+
+}
+
+
+
+const GetKioskBatchPrice = () => {
+  // api Logic Here
+
+  
+
+
+  setLoaderMain(true);
+      const url = getkioskbatchprice_url;
+      axios.post(url, 
+        {
+          
+          location: editdata.loc,
+          
+        },
+        {
+          headers: {
+            'Authorization': token,
+          }
+        }
+      )
+      .then(response=>{
+          if(response.status !== 201 && response.status !==200)
+          {
+            // console.log(response.status)
+              alert("Error", response.status)
+          }
+          else
+          {   
+          // setKioskProductPrice(response.data)
+            setKioskBatchPrice(response.data)
+            setEditPriceOpen(false)
+           setLoaderMain(false)
+          }
+      })
+  
+
+}
+
+const EditKioskBatchPrice = () => {
+  // api Logic Here
+
+  
+  var errors = false
+  Object.entries(kioskbatchprice).map(([key,value])=>{
+      if(!value){
+        
+        errors = true
+      }
+  })
+
+  if(errors){
+    alert("Missing Field. Please complete the form")
+  }
+  else{
+
+  setLoaderMain(true);
+      const url = setkioskbatchprice_url;
+      
+      axios.post(url, 
+        {
+          kiosk:editdata.kname,
+          data:kioskbatchprice
+          
+        },
+        {
+          headers: {
+            'Authorization': token,
+          }
+        }
+      )
+      .then(response=>{
+          if(response.status !== 201 && response.status !==200)
+          {
+            // console.log(response.status)
+              alert("Error", response.status)
+          }
+          else
+          {   
+            setKioskProductPrice(response.data)
+            setEditBatchPrice(false)
+           setLoaderMain(false)
+          }
+      })
+    }
+  
 
 }
 
@@ -531,6 +729,7 @@ if(loadermain === true)
               name="kname"
               type="text"
               onChange={handleEditChange}
+              disabled
             />
           </Form.Group>
 
@@ -542,6 +741,7 @@ if(loadermain === true)
               name="loc"
               type="text"
               onChange={handleEditChange}
+              disabled
             />
           </Form.Group>
 
@@ -588,8 +788,103 @@ if(loadermain === true)
       </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={()=>{setEditIsOpen(false)}}>Close</Button>
-        <Button style={{backgroundColor: 'rgb(255, 138, 165)', border: 'none'}} onClick={()=>{EditApi(table.length !== 0 ? table[editindex !== '' ? editindex : 0].id : "")}} >Edit</Button>
+        <div className="d-flex justify-content-between w-100">
+        <div>
+          <Button style={{backgroundColor: 'rgb(255, 138, 165)', border: 'none',marginRight: '10px'}} onClick={()=>{GetKioskBatchPrice();setEditBatchPrice(true);setEditIsOpen(false)}}>Edit batch price</Button>
+          <Button style={{backgroundColor: 'rgb(255, 138, 165)', border: 'none',marginRight: '10px'}} onClick={()=>{GetKioskProductPrice();setEditPriceOpen(true);setEditIsOpen(false)}}>Edit product price</Button>
+        </div>
+        <div>
+          <Button style={{marginRight: '10px'}} variant="secondary" onClick={()=>{setEditIsOpen(false)}}>Close</Button>
+          <Button style={{backgroundColor: 'rgb(255, 138, 165)', border: 'none',marginRight: '10px'}} onClick={()=>{EditApi(table.length !== 0 ? table[editindex !== '' ? editindex : 0].id : "")}} >Edit</Button>
+        </div>
+        
+        </div>
+      
+      </Modal.Footer>
+    </Modal>
+
+
+    <Modal
+      show={editpriceopen}
+      onHide={()=>{setEditPriceOpen(false);setEditIsOpen(true)}}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      >
+      <Modal.Header closeButton>
+        <Modal.Title>Edit Kiosk Product Price</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+      <Form>
+
+      
+          {
+            Object.entries(kioskproductprice).map(([key,value])=>(
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>{key}</Form.Label>
+               <Form.Control
+                value={value}
+                name={key}
+               type="number"
+               onChange={handlePriceEditChange}
+             />
+             </Form.Group>
+            ))
+            
+          }
+        
+          
+
+
+          
+          
+      </Form>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={()=>{setEditPriceOpen(false);setEditIsOpen(true)}}>Close</Button>
+        <Button style={{backgroundColor: 'rgb(255, 138, 165)', border: 'none'}} onClick={()=>{EditKioskPrice()}} >Edit</Button>
+      </Modal.Footer>
+    </Modal>
+
+    <Modal
+      show={editbatchprice}
+      onHide={()=>{setEditBatchPrice(false);setEditIsOpen(true)}}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      >
+      <Modal.Header closeButton>
+        <Modal.Title>Edit Kiosk Batch Price</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+      <Form>
+
+      
+          {
+            Object.entries(kioskbatchprice).map(([key,value])=>(
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>{key.replace('_',' ')}</Form.Label>
+               <Form.Control
+                value={value}
+                name={key}
+               type="number"
+               onChange={handleBatchPriceEditChange}
+             />
+             </Form.Group>
+            ))
+            
+          }
+        
+          
+
+
+          
+          
+      </Form>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={()=>{setEditBatchPrice(false);setEditIsOpen(true)}}>Close</Button>
+        <Button style={{backgroundColor: 'rgb(255, 138, 165)', border: 'none'}} onClick={()=>{EditKioskBatchPrice()}} >Edit</Button>
       </Modal.Footer>
     </Modal>
 

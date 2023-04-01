@@ -22,10 +22,16 @@ export default function AccessReq() {
   const [addisopen, setAddtIsOpen] = useState(false)
   const [index, setIndex] = useState('')
 
+  
+  
+  
+
+
 
   useEffect(() => {
     getData();
   }, [rerender])
+
 
   const getData = async (e) => {
     setLoaderMain(true);
@@ -214,6 +220,8 @@ export default function AccessReq() {
                               <div className='col-12 d-flex justify-content-between '>
                               <div >
                                 {tabl.Data.items.map((table, index)=>{
+                                    // console.log(table.Item_Name,table.Quantity)
+                                    // table.Quantity==0? localStorage.setItem(String(table.Item_Name), ''):localStorage.setItem(String(table.Item_Name), table.Quantity)
                                     return(
                                         table.Quantity==0?'':<span> {table.Item_Name} ({table.Quantity}),</span>
                                         
@@ -224,8 +232,13 @@ export default function AccessReq() {
           
                                 {/* <button className="b1">Download</button> */}
                                 <Link to={"/inventory/Assign"} >
-                                    <button style={{width:'80px',marginRight:'10px'}}  className="b2">Assign</button>
+                                    <button style={{width:'80px',marginRight:'10px'}}   className="b2">Assign</button>
+                                    
                                 </Link>
+                                
+                                        
+                                    
+                                    
                                 </div>
                               </div>
 

@@ -14,7 +14,7 @@ import { CSVLink } from "react-csv";
 
 var Url = axiosURL.Products;
 var AddUrl = axiosURL.AddProducts;
-// var addCategory = axiosURL.AddCategory;
+var addCategory = axiosURL.AddCategory;
 var EditUrl = axiosURL.EditProducts;
 var DeleteUrl = axiosURL.DeleteProducts;
 var tok = localStorage.getItem('token')
@@ -34,12 +34,12 @@ export default function Products() {
   const [editimage, setEditImage] = useState([]);
   const [editindex, setEditIndex] = useState([]);
   const [adddata, setAddData] = useState([]);
-  // const [addcategorydata, setAddCategoryData] = useState([]);
+  const [addcategorydata, setAddCategoryData] = useState([]);
   const [addimage, setAddImage] = useState([]);
   const [loadermain, setLoaderMain] = useState(true)
 
   const [addcategory,setAddCategory] = useState(false)
-  // const [category,setCategory] = useState('1')
+  const [category,setCategory] = useState([])
 
 
   useEffect(() => {
@@ -65,14 +65,11 @@ export default function Products() {
           }
           );
 
+          console.log(response.data)
           var res = response.data.data;
           console.log('test')
           setTable(res);
-          // console.log('================')
-          // console.log(setCategory(''))
-          // console.log('================')
-          // console.log(category)
-          // console.log('================')
+          setCategory(response.data.categories)
           
 
         setLoaderMain(false);
@@ -109,13 +106,13 @@ export default function Products() {
   }));
 };
 
-// const handleAddCategory = e => {
-//   const { name, value } = e.target;
-//   setAddCategoryData(prevState => ({
-//     ...prevState,
-//     [name]: value
-// }));
-// };
+const handleAddCategory = e => {
+  const { name, value } = e.target;
+  setAddCategoryData(prevState => ({
+    ...prevState,
+    [name]: value
+}));
+};
 
 
 const hadleEditModel = (index) => {
@@ -126,6 +123,7 @@ const hadleEditModel = (index) => {
     price: table.length !== 0 ? table[index].price : "",
     desc: table.length !== 0 ? table[index].description : "",
     image: table.length !== 0 ? table[index].picture : "",
+    // percentage: table.length !== 0 ? table[index].perct_to_divide : "",
     percentage: table.length !== 0 ? table[index].perct_to_divide : "",
 }));
 
@@ -180,18 +178,20 @@ const AddApi = () => {
   else if (!addimage){
       alert("Image is Required")
   }
-  else if (!adddata.percentage){
-      alert("Percentage to Divide is Required")
-  }
+  // else if (!adddata.percentage){
+  //     alert("Percentage to Divide is Required")
+  // }
   else
   {
+    setLoaderMain(true);
 
 
     let data = new FormData();
     data.append('product_name', adddata.dName);
     data.append('description', adddata.desc);
     data.append('price', adddata.price);
-    data.append('perct_to_divide', adddata.percentage);
+    // data.append('perct_to_divide', adddata.percentage);
+    data.append('category', adddata.category);
     data.append('picture', addimage);
 
 
@@ -213,7 +213,9 @@ const AddApi = () => {
           else
           {   
             // console.log(response.data)
-            alert(response.data.message)
+            console.log('=================')
+            console.log(response.data)
+            console.log('=================')
             setAddtIsOpen(false);
             setAddData([]);
             setRerender(!rerender);
@@ -224,52 +226,55 @@ const AddApi = () => {
 
 }
 
-// const AddCategoryApi = () => {
-//   // api Logic Here
-
-  
-  
-  
-//   if (addcategorydata.categoryName === undefined || addcategorydata.categoryName === ""){
-//     alert("Category Name is Required")
-//     return
-//   }
-//   else
-//   {
+const AddCategoryApi = () => {
+  if (addcategorydata.categoryName === undefined || addcategorydata.categoryName === ""){
+    alert("Category Name is Required")
+    return
+  }
+  else
+  {
     
-//     setLoaderMain(true);
+    setLoaderMain(true);
 
-//     let data = new FormData();
-//     data.append('category_name', addcategorydata.categoryName);
+    let data = new FormData();
+    data.append('category_name', addcategorydata.categoryName);
     
-//       const url = addCategory;
-//       axios.post(url, 
-//         data,
-//         {
-//           headers: {
-//             'Authorization': token,
-//           }
-//         }
-//       )
-//       .then(response=>{
+      const url = addCategory;
+      axios.post(url, 
+        data,
+        {
+          headers: {
+            'Authorization': token,
+          }
+        }
+      )
+      .then(response=>{
         
-//           if(response.status !== 200)
-//           {
+          if(response.status !== 200)
+          {
             
-//               alert("Error", response.status)
-//           }
-//           else
-//           {  
-//             console.log(response)
-//             setAddCategory(false);
-//             setAddCategoryData([]);
-//             setRerender(!rerender);
-//             alert(response.data.message)
-//           }
-//       })
-//   }
+              alert("Error", response.status)
+          }
+          else
+          {  
+            console.log(response)
+            
+            alert(response.data.message)
+            setLoaderMain(false);
+            
+            if(response.data.message !== 'Category already exists.'){
 
-// }
+              
+              setAddCategory(false);
+              setAddCategoryData([]);
+              setRerender(!rerender);
+              setAddtIsOpen(true)
+            }
+          }
+      })
+  }
+
+}
 
 
 
@@ -287,9 +292,9 @@ else if (!adddata.price){
 else if (!adddata.desc){
     alert("Description is Required")
 }
-else if (!adddata.percentage){
-    alert("Percentage to Divide is Required")
-}
+// else if (!adddata.percentage){
+//     alert("Percentage to Divide is Required")
+// }
 else
 {
 
@@ -298,7 +303,8 @@ else
   data.append('product_name', editdata.dName);
   data.append('description', editdata.desc);
   data.append('price', editdata.price);
-  data.append('perct_to_divide', editdata.percentage);
+  // data.append('perct_to_divide', editdata.percentage);
+  data.append('category', adddata.category);
   data.append('picture', editimage);
 
 
@@ -426,7 +432,7 @@ if(loadermain === true)
     {table.map((tabl, index)=>{
       return(
       <tr key={tabl.id}>
-        <td><img style={{width: '50px'}} src={'https://dwf.walnuthash.com/public/uploads/products/' + tabl.picture} alt={`Product Image`}  className="img-responsive" /></td>
+        <td><img style={{width: '50px'}} src={'https://dwf.walnuthash.com/public/uploads/products/' + tabl.picture} alt={`Product`}  className="img-responsive" /></td>
         <td>{tabl.product_name}</td>
         <td>{tabl.description}</td>
         <td>{tabl.price}</td>
@@ -470,6 +476,25 @@ if(loadermain === true)
               type="text"
               onChange={handleAddChange}
             />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Assign Category</Form.Label>
+
+            <select className='form-control' name="category" id="cars"  value={adddata.category}
+              onChange={handleAddChange}
+              >
+                <option >Select Category</option>
+                {
+                  Object.entries(category).map(([key,value])=>{
+                    return(
+                      <option key={key} value={key} >{value}</option>
+                      );
+                  })
+                }
+                
+
+            </select>
           </Form.Group>
           
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -515,16 +540,23 @@ if(loadermain === true)
           
       </Form>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className='justify-content-between'>
+        <div >
+
+          <Button style={{backgroundColor: '#FF8AA5', border:'none'}} onClick={()=>{setAddCategory(true);setAddtIsOpen(false)}} >Add Category</Button>
+        </div>
+        <div>
+
         <Button variant="secondary" onClick={()=>{setAddtIsOpen(false)}}>Close</Button>
-        <Button style={{backgroundColor: '#FF8AA5', border:'none'}} onClick={()=>{AddApi()}} >Add</Button>
-        {/* <Button style={{backgroundColor: '#FF8AA5', border:'none'}} onClick={()=>{setAddCategory(true)}} >Add Category</Button> */}
+        <Button style={{backgroundColor: '#FF8AA5', border:'none',marginLeft:'10px'}} onClick={()=>{AddApi()}} >Add</Button>
+        </div>
+        
       </Modal.Footer>
     </Modal>
 
-    {/* <Modal
+    <Modal
       show={addcategory}
-      onHide={()=>{setAddCategory(false)}}
+      onHide={()=>{setAddCategory(false);setAddtIsOpen(true)}}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
@@ -546,10 +578,10 @@ if(loadermain === true)
       </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={()=>{setAddtIsOpen(false)}}>Close</Button>
+        <Button variant="secondary" onClick={()=>{setAddCategory(false);setAddtIsOpen(true)}}>Close</Button>
         <Button style={{backgroundColor: '#FF8AA5', border:'none'}} onClick={()=>{AddCategoryApi()}} >Add</Button>
       </Modal.Footer>
-    </Modal> */}
+    </Modal>
 
 
 
@@ -572,7 +604,27 @@ if(loadermain === true)
               name="dName"
               type="text"
               onChange={handleEditChange}
+              disabled
             />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Assign Category</Form.Label>
+
+            <select className='form-control' name="category" id="cars"  value={adddata.category}
+              onChange={handleAddChange}
+              >
+                <option >Select Category</option>
+                {
+                  Object.entries(category).map(([key,value])=>{
+                    return(
+                      <option key={key} value={key} >{value}</option>
+                      );
+                  })
+                }
+                
+
+            </select>
           </Form.Group>
           
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">

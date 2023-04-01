@@ -8,6 +8,7 @@ import { Modal, Button, Form } from "react-bootstrap";
 
 import loader from '../../../Assets/Dashboard_SVGs/loader.gif'
 import backk from '../../../Assets/Dashboard_SVGs/back.svg'
+import { useLocation } from 'react-router-dom';
 
 var dataURL = axiosURL.Kiosk;
 var AddInv = axiosURL.DailyInventoryAdd;
@@ -17,14 +18,24 @@ var token = 'Bearer ' + tok;
 
 
 export default function AssignInv() {
+//   constructor(props){
+//     super(props);
+//     this.state={
+//         value:this.props.location.state,
+//     }
+
+// }
+
+  
+
 
 
     const [rerender, setRerender] = useState(false);
     const [list, setList] = useState([]);
     const [selected, setSelected] = useState('Select Branch');
     const [inputFields, setInputFields] = useState([
-      {item: 'Box of 1', quantity: '0', disabled:true},
-      {item: 'Box of 2', quantity: '0', disabled:true},
+      {item: 'Box of 1', quantity:'0', disabled:true},
+      {item: 'Box of 2', quantity:'0', disabled:true},
       {item: 'Box of 6', quantity: '0', disabled:true},
       {item: 'Box of 9', quantity: '0', disabled:true},
       {item: 'Box of 12', quantity: '0', disabled:true},
@@ -32,7 +43,22 @@ export default function AssignInv() {
       {item: 'Bag of 9', quantity: '0', disabled:true},
       {item: 'Bag of 12', quantity: '0', disabled:true},
     ])
+    // const [inputFields, setInputFields] = useState([
+    //   {item: 'Box of 1', quantity:localStorage.getItem('Box of 1')?localStorage.getItem('Box of 1'):'0', disabled:true},
+    //   {item: 'Box of 2', quantity:localStorage.getItem('Box of 2')?localStorage.getItem('Box of 2'):'0', disabled:true},
+    //   {item: 'Box of 6', quantity: localStorage.getItem('Box of 6')?localStorage.getItem('Box of 6'):'0', disabled:true},
+    //   {item: 'Box of 9', quantity: localStorage.getItem('Box of 9')?localStorage.getItem('Box of 9'):'0', disabled:true},
+    //   {item: 'Box of 12', quantity: localStorage.getItem('Box of 12')?localStorage.getItem('Box of 12'):'0', disabled:true},
+    //   {item: 'Bag of 6', quantity: localStorage.getItem('Box of 6')?localStorage.getItem('Box of 6'):'0', disabled:true},
+    //   {item: 'Bag of 9', quantity: localStorage.getItem('Box of 9')?localStorage.getItem('Box of 9'):'0', disabled:true},
+    //   {item: 'Bag of 12', quantity: localStorage.getItem('Box of 12')?localStorage.getItem('Box of 12'):'0', disabled:true},
+    // ])
     const [loadermain, setLoaderMain] = useState(true)
+
+    const {state} = useLocation();
+    console.log('testststss3232323')
+    console.log(localStorage.getItem('Bag of 12'))
+    console.log('testststss3232323')
 
 
     useEffect(() => {
