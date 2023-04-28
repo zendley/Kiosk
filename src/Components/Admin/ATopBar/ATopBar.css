@@ -1,75 +1,71 @@
 .topbar {
-    width: 100%;
-    height: 65px;
-    background-color: white;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 15px;
-  }
+  width: calc(100% - 265px);
+  left: 265px;
+  float: right;
+  height: 65px;
+  background-color: white;
+  position: sticky;
+  margin-top: 0px;
+  z-index: 999;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 15px;
+}
 
+/* .topLeft {
+  background-color: #01a0c6;
+  min-width: 265px;
+  width: 14vw;
+  max-width: 14vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
 
-  .topLeft{
-    background-color: #FFEFF2;
-    min-width: 265px;
-    width: 14vw;
-    max-width: 14vw;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .topLeft img{
-    /* margin-left: 5px; */
-    height: 50px;
-  }
+.topbarWrapper {
+  height: 100%;
+  /* padding: 0px 20px; */
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
 
-  
-  .topbarWrapper {
-    height: 100%;
-    /* padding: 0px 20px; */
-    display: flex;
-    align-items: center;
-    /* justify-content: space-between; */
-  }
-  
-  .logo {
-    font-weight: bold;
-    font-size: 30px;
-    color: darkblue;
-    cursor: pointer;
-  }
-  
-  .topRight{
-      display: flex;
-      align-items: center;
-  }
-  
-  .topbarIconContainer {
-    position: relative;
-    cursor: pointer;
-    margin-right: 10px;
-    color: #555;
-  }
-  
-  .topIconBadge{
-      width: 15px;
-      height: 15px;
-      position: absolute;
-      top: -5px;
-      right: 0px;
-      background-color: red;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-  }
-  
-  .topAvatar{
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-  }
+.logo {
+  font-weight: bold;
+  font-size: 30px;
+  color: darkblue;
+  cursor: pointer;
+}
+
+.topRight {
+  display: flex;
+  align-items: center;
+}
+
+.topbarIconContainer {
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px;
+  color: #555;
+}
+
+.topIconBadge {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.topAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}

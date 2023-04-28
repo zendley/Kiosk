@@ -1,35 +1,44 @@
-.row{
-    max-height: 100vh;
-    min-height: 100vh;
+.row {
+  max-height: 100vh;
+  min-height: 100vh;
 }
 
-.left{
-    background-color: #ffeff2;
-    text-align: center;
-    /* padding: 128px; */
+.left {
+  background: linear-gradient(180deg, #01a0c6, #015063);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* padding: 128px; */
 }
-.card{
-    width: 420px;
-    padding: 25px 50px;
-    border-radius: 2px;
-    border: none;
-    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+.left_text {
+  color: white;
+  margin-top: 5px;
+  margin-left: -60px;
 }
-.button2{
-    height: 40px;
-    width: 320px;
-    background-color: #ff8aa5;
-    border: none;
-    border-radius: 6px;
-    margin-top: 0px;
-    color: white;
+
+.card {
+  width: 420px;
+  padding: 25px 50px;
+  border-radius: 2px;
+  border: none;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
 }
-.button3{
-    height: 40px;
-    width: 320px;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 6px;
-    margin-top: 20px;
-    color: black;
+.button2 {
+  height: 40px;
+  width: 320px;
+  background: linear-gradient(180deg, #01a0c6, #015063);
+  border: none;
+  border-radius: 6px;
+  margin-top: 0px;
+  color: white;
+}
+.button3 {
+  height: 40px;
+  width: 320px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 6px;
+  margin-top: 20px;
+  color: black;
 }

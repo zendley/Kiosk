@@ -1,37 +1,37 @@
-.main{
-    margin: 10px;
-    margin-top: 25px;
+.main {
+  margin: 10px;
+  margin-top: 25px;
 }
-.card2{
-    background-color: white;
-    width: 390px;
-    padding: 25px 15px 15px 15px;
-    border-radius: 2px;
-    border: none;
-    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+.card2 {
+  background-color: white;
+  width: 390px;
+  padding: 25px 15px 15px 15px;
+  border-radius: 2px;
+  border: none;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
 }
-.butto{
-    color: white;
-    border: none;
-    width: 100px;
-    height: 30px;
-    /* background-color: #463B3B; */
-    background-color: #FF8AA5;
-    /* border-radius: 25px; */
-    border-radius: 2px;
+.butto {
+  color: white;
+  border: none;
+  width: 100px;
+  height: 30px;
+  /* background-color: #463B3B; */
+  background: linear-gradient(180deg, #01a0c6, #015063);
+  /* border-radius: 25px; */
+  border-radius: 2px;
 }
-.Sform{
-    text-align: center;
+.Sform {
+  text-align: center;
 }
-.inpp{
-    margin-bottom: 11px;
+.inpp {
+  margin-bottom: 11px;
 }
-.editButton{
-    font-size: 10px;
-    background-color: #463B3B;
-    color: white;
-    border: none;
-    width: 100%;
-    border-radius: 10px;
-    padding: 2px 0;
+.editButton {
+  font-size: 10px;
+  background: black;
+  color: white;
+  border: none;
+  width: 100%;
+  border-radius: 10px;
+  padding: 2px 0;
 }

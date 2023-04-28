@@ -1,79 +1,86 @@
 .sidebar {
-    flex: 1;
-    height: calc(100vh - 50px);
-    background-color: #FFEFF2;
-    position: sticky;
-    top: 50px;
-    min-width: 265px;
-    max-width: 14vw !important;
-    overflow-x: hidden;
-  }
+  flex: 1;
 
-  .sidebar::-webkit-scrollbar {
-    display: none;
-  }
+  background-color: #ffeff2;
+  position: sticky;
 
-  .sidebar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
-  
-  .sidebarWrapper {
-    padding: 20px;
-    color: #555;
-  }
-  
-  .sidebarMenu {
-    margin-bottom: 10px;
-  }
-  
-  .sidebarTitle {
-    font-size: 13px;
-    color: rgb(187, 186, 186);
-  }
-  
-  .sidebarList {
-    all:unset;
-    list-style: none;
-    padding: 5px;
-  }
-  
-  .sidebarListItem {
-    all:unset;
-    padding: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    /* border-radius: 10px; */
-    min-width: 265px;
-    max-width: 14vw;
-    /* width: 109%; */
-    height: 38px;
-    padding-left: 25px;
-    margin-left: -25px;
-    color: black;
-    
-  }
-  
-  .sidebarListItem.active,
-  .sidebarListItem:hover {
-    
-    background-image: linear-gradient(to right, #FF8AA5 , #FFEFF2);
-    background-color: #FF8AA5;
-  }
-  
-  .sidebarIcon{
-      margin-right: 5px;
-      font-size: 20px !important;
-  }
+  min-width: 265px;
+  max-width: 14vw !important;
+  overflow-x: hidden;
+}
 
-  .ico{
-    height: 27px;
-    padding-right: 10px;
-  }
-  a:link{
-    text-decoration: none;
-  }
-  .sico{
-    width: 18px;
-  }
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.sidebarWrapper {
+  padding: 20px;
+  color: #555;
+}
+
+.sidebarMenu {
+  margin-bottom: 10px;
+}
+
+.sidebarTitle {
+  font-size: 13px;
+  color: rgb(187, 186, 186);
+}
+
+.sidebarList {
+  all: unset;
+  list-style: none;
+  padding: 5px;
+}
+
+.sidebarListItem {
+  all: unset;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  /* border-radius: 10px; */
+  min-width: 265px;
+  max-width: 14vw;
+  /* width: 109%; */
+  height: 38px;
+  padding-left: 25px;
+  margin-left: -25px;
+  color: black;
+}
+
+.sidebarIcon {
+  margin-right: 5px;
+  font-size: 20px !important;
+}
+
+.ico {
+  height: 27px;
+  padding-right: 10px;
+}
+a:link {
+  text-decoration: none;
+}
+.sico {
+  width: 18px;
+}
+.sico_logout {
+  width: 22px;
+
+  filter: invert(0.9) sepia(1) saturate(5) hue-rotate(175deg);
+}
+.sidebar_bag {
+  margin-left: -6px;
+  width: 80px;
+  display: inline;
+}
+.sidebar_text {
+  width: 150px;
+  display: inline;
+  justify-content: center;
+}

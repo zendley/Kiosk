@@ -1,49 +1,50 @@
-h2{
-    color: #463B3B;
+h2 {
+  color: #463b3b;
 }
-.table{
-    min-width: 79vw;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-}
-
-.table tr{
-    text-align-last: center;
+.table {
+  min-width: 79vw;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
-.a{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.table tr {
+  text-align-last: center;
 }
 
-.a h2{
-    font-size: 1.5rem;
-}
-.pBut{
-    border: none !important;
-    border-radius: 25px !important;
-    font-size: 13px !important;
-    color: white !important;
-    background-color: #FF8AA5 !important;
-    margin: 10px !important;
-    padding: 5px 12px !important;
-}
-.pButMr0{
-    border: none !important;
-    border-radius: 25px !important;
-    font-size: 13px !important;
-    color: white !important;
-    background-color: #FF8AA5 !important;
-    margin: 10px 0 10px 10px ;
-    padding: 5px 12px !important;
+.a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.table{
-    background-color: white;
-    overflow-x: scroll;
+.a h2 {
+  font-size: 1.5rem;
 }
-.table-striped{
-    margin: 0px !important;
+.pBut {
+  border: none !important;
+  border-radius: 25px !important;
+  font-size: 13px !important;
+  color: white !important;
+  background: linear-gradient(180deg, #01a0c6, #015063) !important;
+  margin: 10px !important;
+  padding: 5px 12px !important;
+}
+.pButMr0 {
+  border: none !important;
+  border-radius: 25px !important;
+  font-size: 13px !important;
+  color: white !important;
+  background: linear-gradient(180deg, #01a0c6, #015063) !important;
+  margin: 10px 0 10px 10px;
+  padding: 5px 12px !important;
+}
+
+.table {
+  background-color: white;
+  overflow-x: scroll;
+}
+.table-striped {
+  margin: 0px !important;
 }
 
 input::-webkit-outer-spin-button,
@@ -52,18 +53,18 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.editing-name{
-    max-width: 60px !important;
-    height: 30px;
+.editing-name {
+  max-width: 60px !important;
+  height: 30px;
 }
 
-.tabheader th{
-        font-size: 13px;
-        font-weight: 100;
-        background-color: rgb(70, 59, 59);
-        color: white;
-        text-align: center;
-        width: 100px;
+.tabheader th {
+  font-size: 13px;
+  font-weight: 100;
+  background-color: linear-gradient(180deg, #01a0c6, #015063) !important;
+  color: white;
+  text-align: center;
+  width: 100px;
 }
 /* .table-body-height{
     height: 300px !important;
@@ -74,6 +75,9 @@ input::-webkit-inner-spin-button {
     background-color: red;
 } */
 .react-bootstrap-table {
-    max-height: 65vh !important;
-    overflow-y: scroll;
-  }
+  max-height: 65vh !important;
+  overflow-y: scroll;
+}
+.table > thead {
+  background-color: linear-gradient(180deg, #01a0c6, #015063) !important;
+}

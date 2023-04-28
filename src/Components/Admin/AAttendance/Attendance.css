@@ -1,37 +1,41 @@
-.attable{
-    background-color: white;
+.attable {
+  background-color: white;
 }
 
 .attable th {
-    background-color: #463B3B;
-    color: #fff;
-    padding: 0.5em 1em;
+  background-color: #463b3b;
+  color: #fff;
+  padding: 0.5em 1em;
 }
 
 .attable td {
-    border: 1px solid black;
-    padding: 0.5em 1em;
+  border: 1px solid black;
+  padding: 0.5em 1em;
 }
 
 .attable input {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* Column types */
 .attable th.missed-col {
-    background-color: #463B3B;
+  background-color: #463b3b;
 }
 
 .attable td.missed-col {
-    background-color: #ffecec;
-    color: #f58aa6;
-    text-align: center;
+  color: #015063;
+  text-align: center;
 }
 
 .name-col {
-    text-align: left;
+  text-align: left;
 }
 
-.tape{
-    overflow-x: scroll;
+.tape {
+  overflow-x: scroll;
+}
+.sico1 {
+  filter: invert(0.9) sepia(1) saturate(5) hue-rotate(175deg);
+}
+.modal-xl {
 }

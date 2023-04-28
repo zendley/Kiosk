@@ -1,77 +1,80 @@
-.kiosk{
-    margin: 21px;
-    margin-top: 25px;
+.kiosk {
+  margin: 21px;
+  margin-top: 25px;
 }
 
-.top{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
-.b1{
-    width: 135px;
-    border: none;
-    color: white;
-    background-color: #FF8AA5;
-    height: 30px;
-    border-radius: 25px;
-    font-size: 14px;
+.b1 {
+  width: 135px;
+  border: none;
+  color: white;
+  background-color: black;
+  height: 30px;
+  border-radius: 25px;
+  font-size: 14px;
 }
-.b2{
-    width: 135px;
-    margin-left: 10px;
-    border: none;
-    color: white;
-    background-color: #463B3B;
-    height: 30px;
-    border-radius: 25px;
-    font-size: 14px;
+.b2 {
+  width: 135px;
+  margin-left: 10px;
+  border: none;
+  color: white;
+  background: linear-gradient(180deg, #01a0c6, #015063);
+  height: 30px;
+  border-radius: 25px;
+  font-size: 14px;
 }
 
 /* color variables */
 /* border radius */
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
-    font-family: Mukta, sans-serif;
-    height: 100vh;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    color: #4f546c;
-    font-size: 0.9rem;
-    background-color: #f9fbff;
+  font-family: Mukta, sans-serif;
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: #4f546c;
+  font-size: 0.9rem;
+  background-color: #f9fbff;
 }
 .tablee {
-    min-width: 78vw;
-    border-collapse: collapse;
-    box-shadow: 0 5px 10px #e1e5ee;
-    background-color: white;
-    text-align: left;
-    overflow: hidden;
-    border-radius: 10px;
+  min-width: 78vw;
+  border-collapse: collapse;
+  box-shadow: 0 5px 10px #e1e5ee;
+  background-color: white;
+  text-align: left;
+  overflow: hidden;
+  border-radius: 10px;
 }
 .tablee thead {
-    box-shadow: 0 5px 10px #e1e5ee;
+  box-shadow: 0 5px 10px #e1e5ee;
 }
 .tablee th {
-    padding: 1rem 2rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    font-size: 0.7rem;
-    font-weight: 900;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 0.7rem;
+  font-weight: 900;
 }
 .tablee td {
-    padding: 1rem 2rem;
+  padding: 1rem 2rem;
 }
 
 .tablee .amount {
-    text-align: right;
+  text-align: right;
 }
 .tablee tr:nth-child(even) {
-    background-color: #FFEFF2;
+  background-color: white;
 }

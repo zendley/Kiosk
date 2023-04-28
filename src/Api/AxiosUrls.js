@@ -82,11 +82,18 @@ export const ChangeKioskPrice = 'admin/products/editkioskprice';
 export const GetKioskBatchPrice = 'admin/products/getkioskbatchprice';
 export const SetKioskBatchPrice = 'admin/products/setkioskbatchprice';
 
+export const AddDeal = 'admin/products/adddeal';
+export const GetDeal = 'admin/products/getdeal';
+
 //Requestable Accessories
 export const Requestable_get = 'admin/inventory/requestable/get';
 export const Requestable_add = 'admin/inventory/requestable/add';
 export const Requestable_edit = 'admin/inventory/requestable/edit';
 export const Requestable_delete = 'admin/inventory/requestable/delete';
+
+// Accessories Category
+export const AddItemsCategory = 'admin/inventory/addcategory';
+export const GetItemsCategory = 'admin/inventory/getcategory';
 
 
 // Inventory
@@ -98,6 +105,8 @@ export const DailyRequestedInv = '/admin/inventory/requested/get';
 //Fixed
 export const FixedInventoryGet = '/admin/inventory/fixed/get';
 export const FixedInventoryAdd = '/admin/inventory/fixed/add';
+
+
 
 //Sale Channel
 export const SaleKiosk = '/admin/salechannel/kiosk/get';
