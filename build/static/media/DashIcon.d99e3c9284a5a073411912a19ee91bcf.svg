@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21.738" height="22.001" viewBox="0 0 21.738 22.001">
+  <g id="Icon_1" data-name="Icon 1" transform="translate(-558 -137.781)">
+    <circle id="Op_component_1" data-name="Op component 1" cx="3.48" cy="3.48" r="3.48" transform="translate(572.778 137.781)" fill="#fff"/>
+    <path id="Vector" d="M737.2,160.5h-3a1,1,0,0,0-1,1V166a1,1,0,0,0,1,1h3a1,1,0,0,0,1-1v-4.5A1,1,0,0,0,737.2,160.5Z" transform="translate(-174.952 -7.219)" fill="#fff"/>
+    <path id="Vector-2" data-name="Vector" d="M744.951,157h-3a1,1,0,0,0-1,1v8a1,1,0,0,0,1,1h3a1,1,0,0,0,1-1v-8A1,1,0,0,0,744.951,157Z" transform="translate(-174.952 -7.219)" fill="#fff"/>
+    <path id="Vector-3" data-name="Vector" d="M752.705,153h-3a1,1,0,0,0-1,1v12a1,1,0,0,0,1,1h3a1,1,0,0,0,1-1V154A1,1,0,0,0,752.705,153Z" transform="translate(-174.952 -7.219)" fill="#fff"/>
+    <path id="Vector-4" data-name="Vector" d="M746.709,150.136l-2.483-.519a.5.5,0,0,0-.544.725l.55,1.035-11.01,5.679a.5.5,0,0,0,.23.944.491.491,0,0,0,.229-.056l11.02-5.685.505.949a.5.5,0,0,0,.441.265h.025a.5.5,0,0,0,.438-.31l.959-2.349a.5.5,0,0,0-.021-.424A.508.508,0,0,0,746.709,150.136Z" transform="translate(-174.952 -7.219)" fill="#fff"/>
+  </g>
+</svg>
